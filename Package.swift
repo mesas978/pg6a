@@ -8,7 +8,11 @@ let package = Package(
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "4.0.0-rc"),
+        .package(url: "https://github.com/vapor/vapor.git", from: "4.3.0"),
+        //ackage(url: "https://github.com/vapor/leaf.git", from: "4.0.0-rc"),
+        .package(url: "https://github.com/vapor/leaf.git", from: "4.0.0-rc"),
+        .package(url: "https://github.com/vapor/leaf-kit.git", .branch("master")),
+        .package(url: "https://github.com/vapor/jwt.git", from: "4.0.0-rc"),
         .package(url: "https://github.com/vapor/fluent.git", from: "4.0.0-rc"),
         .package(url: "https://github.com/vapor/fluent-postgres-driver.git", from: "2.0.0-rc")
     ],
@@ -16,9 +20,11 @@ let package = Package(
         .target(
             name: "App",
             dependencies: [
+                .product(name: "Leaf", package: "leaf"),
                 .product(name: "Fluent", package: "fluent"),
                 .product(name: "FluentPostgresDriver", package: "fluent-postgres-driver"),
-                .product(name: "Vapor", package: "vapor")
+                .product(name: "Vapor", package: "vapor"),
+                .product(name: "JWT", package: "jwt")
             ],
             swiftSettings: [
                 // Enable better optimizations when building in Release configuration. Despite the use of

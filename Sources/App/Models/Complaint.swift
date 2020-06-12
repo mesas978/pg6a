@@ -2,9 +2,10 @@ import Fluent
 import Vapor
 
 
+
 final class Complaint: Model, Content {
     
-    static let schema = "cw_complaint5"
+    static let schema = "cw_complaint5_short"
     /*
     @ID(key: .id)
     var id: UUID?
@@ -16,35 +17,43 @@ final class Complaint: Model, Content {
     
      //var id: Int? worked in Vapor 3
     
+    
     @Field(key: "issue_description")
-    var issue_description: String
+    var issue_description: String?
+     
+//    @Field(key: "document_number")
+//    var document_number: Int
     
-    @Field(key: "document_number")
-    var document_number: Int
-    
-    @Field(key: "api_state_code")
-    var api_state_code: Int
-    
-    @Field(key: "api_county_code")
-    var api_county_code: Int
-    
-    @Field(key: "api_sequence_number")
-    var api_sequence_number: Int
-
-    @Field(key: "section")
-    var section: Int
-    
-    @Field(key: "city_id")
-    var city_id: Int
-    
+//    @Field(key: "api_state_code")
+//    var api_state_code: Int
+//    
+//    @Field(key: "api_county_code")
+//    var api_county_code: Int
+//    
+//    @Field(key: "api_sequence_number")
+//    var api_sequence_number: Int
+//
     @Field(key: "county_id")
     var county_id: Int
+        
+    @Field(key: "section")
+    var section: Int
+        
+    @Field(key: "township")
+    var township: String?
     
-    @Field(key: "operator_id")
-    var operator_id: Int
+    @Field(key: "rangee")
+    var rangee: String?
+    
+
+//    @Field(key: "city_id")
+//    var city_id: Int
+    
+//    @Field(key: "operator_id")
+//    var operator_id: Int
     
     @Field(key: "updated")
-    var updated: Date
+    var updated: Date?
 
 
     init() { }
@@ -57,16 +66,22 @@ final class Complaint: Model, Content {
     */
     init(id: Int, issue_description: String, document_number: Int,
          api_state_code: Int, api_county_code: Int, api_sequence_number: Int,
-         section: Int, updated: Date
+         section: Int, township: String, rangee: String
     ) {
         print("50p")
         self.id = id
         self.issue_description = issue_description
-        self.document_number = document_number
-        self.api_state_code = api_state_code
-        self.api_county_code = api_county_code
-        self.api_sequence_number = api_sequence_number
+//        self.document_number = document_number
+//        self.api_state_code = api_state_code
+//        self.api_county_code = api_county_code
+//        self.api_sequence_number = api_sequence_number
         self.section = section
-        self.updated = updated
+        self.township = township
+        self.rangee = rangee
+        self.updated = Date()
     }
 }
+
+
+
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>#(title)</title>
+</head>
+<body>
+<h1>#(body)</h1>
+
+<form action="/complaint" method="POST">
+
+Issue:
+<input type="text" id="issue_description" name="issue_description"><br>
+County:
+<input type="text" id="county_id" name="county_id"><br>
+Section:
+<input type="text" id="section" name="section"><br>
+Township:
+<input type="text" id="township" name="township"><br>
+Range:
+<input type="text" id="rangee" name="rangee"><br>
+
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
