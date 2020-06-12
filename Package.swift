@@ -2,7 +2,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "my-dockerized-app",
+    name: "pg5a",
     platforms: [
        .macOS(.v10_15)
     ],
